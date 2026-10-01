@@ -1,0 +1,32 @@
+/.env
+/job_recommendations.md
+/logs
+/test.py
+/test_vector
+/Workflow.txt
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.pkl
+
+# Environments & secrets
+.env
+.env.local
+.streamlit/secrets.toml
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Data and uploads
+uploads/
+logs/
+*.log
+pipeline_log.txt
+
+# OS metadata
+.DS_Store
+Thumbs.db
