@@ -15,7 +15,7 @@ from crew_tools import (
     prepare_job_application_tool,
 )
 
-DEFAULT_MODEL = os.getenv("LLM_MODEL", "bjoernb/gemma4-31b-fast:latest")
+DEFAULT_MODEL = os.getenv("LLM_MODEL", "gemma4:31b")
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL") or os.getenv("OLLAMA_HOST") or "https://ollama.com/v1"
 # Sync with ollama python package which relies on OLLAMA_HOST
 os.environ["OLLAMA_HOST"] = OLLAMA_BASE_URL
@@ -30,7 +30,6 @@ def get_crew_llm(model_name: str = DEFAULT_MODEL, temperature: float = 0.2) -> L
     base_url = os.getenv("OLLAMA_BASE_URL") or os.getenv("OLLAMA_HOST") or "https://ollama.com/v1"
     return LLM(
         model=model_name,
-        provider="ollama",
         custom_openai=True,
         base_url=base_url,
         api_key=os.getenv("OLLAMA_API_KEY"),
