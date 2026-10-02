@@ -502,7 +502,7 @@ if active_collection:
         unsafe_allow_html=True,
     )
 st.markdown(
-    f'<div class="sub-title">Powered by <b>Ollama</b> (<code>{DEFAULT_MODEL}</code>) • LangGraph Agent • Exa.ai Intelligence • Qdrant Isolation</div>',
+    f'<div class="sub-title">Powered by <b>Ollama</b> (<code>{DEFAULT_MODEL}</code>) • CrewAI • Exa.ai Intelligence • Qdrant Isolation</div>',
     unsafe_allow_html=True,
 )
 
