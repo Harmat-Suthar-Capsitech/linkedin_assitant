@@ -24,10 +24,10 @@ os.environ["OLLAMA_HOST"] = OLLAMA_BASE_URL
 def get_crew_llm(model_name: str = DEFAULT_MODEL) -> LLM:
     """Create or return LiteLLM-compatible Ollama LLM instance for CrewAI."""
     formatted_model = model_name if model_name.startswith("ollama/") else f"ollama/{model_name}"
-    base_url = os.getenv("OLLAMA_BASE_URL") or os.getenv("OLLAMA_HOST") or "http://localhost:11434"
     return LLM(
         model=formatted_model,
-        base_url=base_url,
+        base_url="https://ollama.com/v1",
+        api_key=os.getenv("OLLAMA_API_KEY"),
         temperature=0.2,
     )
 
