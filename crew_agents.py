@@ -31,6 +31,7 @@ def get_crew_llm(model_name: str = DEFAULT_MODEL, temperature: float = 0.2) -> L
     return LLM(
         model=model_name,
         provider="ollama",
+        custom_openai=True,
         base_url=base_url,
         api_key=os.getenv("OLLAMA_API_KEY"),
         temperature=temperature,
