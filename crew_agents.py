@@ -16,7 +16,7 @@ from crew_tools import (
 )
 
 DEFAULT_MODEL = os.getenv("LLM_MODEL", "bjoernb/gemma4-31b-fast:latest")
-OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL") or os.getenv("OLLAMA_HOST") or "http://localhost:11434"
+OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL") or os.getenv("OLLAMA_HOST") or "https://ollama.com/v1"
 # Sync with ollama python package which relies on OLLAMA_HOST
 os.environ["OLLAMA_HOST"] = OLLAMA_BASE_URL
 
