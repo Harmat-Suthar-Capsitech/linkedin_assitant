@@ -22,10 +22,15 @@ os.environ["OLLAMA_HOST"] = OLLAMA_BASE_URL
 
 
 def get_crew_llm(model_name: str = DEFAULT_MODEL, temperature: float = 0.2) -> LLM:
-    """Create or return LiteLLM-compatible Ollama LLM instance for CrewAI with tailored temperature."""
+    """Create LLM instance for CrewAI with tailored temperature.
+
+    Explicitly sets provider='ollama' so CrewAI routes to its native Ollama SDK
+    instead of falling through to LiteLLM (which isn't installed on Streamlit Cloud).
+    """
     base_url = os.getenv("OLLAMA_BASE_URL") or os.getenv("OLLAMA_HOST") or "https://ollama.com/v1"
     return LLM(
         model=model_name,
+        provider="ollama",
         base_url=base_url,
         api_key=os.getenv("OLLAMA_API_KEY"),
         temperature=temperature,
