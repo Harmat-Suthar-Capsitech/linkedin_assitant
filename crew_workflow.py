@@ -649,8 +649,7 @@ def execute_crewai_turn(
         else:
             flow.state.final_response = flow.handle_general_advisory_crew()
 
-    final_text = flow.state.final_response or "Hello! How can I assist you with your career search today?"
-
+    final_text = flow.state.final_response
     # Generator streaming words in chunks for responsive UI
     def _response_stream():
         words = final_text.split(" ")
